@@ -1,90 +1,42 @@
-const date = new Date();
+// color change on club leader's names
+const lastName = document.querySelectorAll('.last-name');
 
-const renderCalendar = () => {
-  date.setDate(1);
+lastName.forEach(name => {
+  name.addEventListener('mouseover', () => {
+    let color = '#' + Math.floor(Math.random()*16777215).toString(16);
+    name.style.color = color;
+  });
+});
 
-  const monthDays = document.querySelector(".days");
 
-  const lastDay = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
-    0
-  ).getDate();
+// image slider
+const slider = document.querySelector('.gallery-slide');
+const images = Array.from(slider.children);
+const prev = document.querySelector('.prev-btn');
+const next = document.querySelector('.next-btn');
 
-  const prevLastDay = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    0
-  ).getDate();
 
-  const firstDayIndex = date.getDay();
+const activeImg = images[0].getBoundingClientRect().width;
 
-  const lastDayIndex = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
-    0
-  ).getDay();
+const setPosition = (image, index) => {
+  image.style.left = activeImg * index + 'px';
+};
+images.forEach(setPosition);
 
-  const nextDays = 7 - lastDayIndex - 1;
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
-
-  function eventHighlight(day) {
-    const eventDate = document.querySelector(".eventDate");
-    let day = new Date().getDate(31) && date.getMonth === new Date.getMonth(7);
-    return eventDate.innerHTML[day];
-  };
-
-  let days = "";
-
-  for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-  }
-
-  for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-      days += `<div class="today">${i}</div>`;
-    } else {
-      days += `<div>${i}</div>`;
-    }
-  }
-
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
-  }
+const moveSlider = (slider, currentImg, targetImg) => {
+  slider.style.transform = 'translateX(-' + targetImg.style.left + ')';
+  currentImg.classList.remove('current-img');
+  targetImg.classList.add('current-img');
 };
 
-document.querySelector(".prev").addEventListener("click", () => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
+prev.addEventListener('click', e => {
+  const currentImg = slider.querySelector('.current-img');
+  const prevImg = currentImg.previousElementSibling;
+  moveSlider(slider, currentImg, prevImg);
 });
 
-document.querySelector(".next").addEventListener("click", () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
+next.addEventListener('click', e => {
+  const currentImg = slider.querySelector('.current-img');
+  const nextImg = currentImg.nextElementSibling;
+  moveSlider(slider, currentImg, nextImg);
 });
-
-renderCalendar();
-
-
