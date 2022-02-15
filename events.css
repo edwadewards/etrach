@@ -1,129 +1,175 @@
-html, body {
-  width: 100%;
-  height: 100%;
+:root {
+  --jan-bg: #333;
+  --feb-bg: rgb(99, 1 , 11);
+  --highlight-color: #eeeeee;
 }
 
-*,
-*::before,
-*::after {
+body {
   padding: 0;
-  margin: 0;
+  margin: 0; 
   box-sizing: border-box;
 }
 
-.container {
-  padding: .6em;
+.jan-wrapper {
+  background-color: var(--jan-bg);
 }
 
-h1, a {
-  font-family: 'Ubuntu', sans-serif;
-  color: #424242;
-  text-transform: uppercase;
-  font-size: 1.65rem;
+.feb-wrapper {
+  background-color: var(--feb-bg);
 }
 
-.header {
+.hero-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: .75em;
+}
+
+.hero-nav,
+.event-menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: .6em 0;
+  justify-content: center;
+  gap: 1em;
+  padding: .75em;
+  border-radius: 7px;
+  background-color: var(--highlight-color);
 }
 
-.meeting-gallery,
+.event-menu {
+  transform: scale(0);
+  transition: transform 1s ease;
+  margin-bottom: 3em;
+}
+
+.hero-nav > button,
+.event-menu > button {
+  background-color: transparent;
+  border: none;
+  font-family: 'Source Code Pro', monospace;
+  font-size: clamp(.7rem, 2vw, 1rem);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero-nav > button:hover,
+.event-menu > button:hover,
+.hero-nav > button:focus,
+.event-menu > button:focus {
+  text-decoration: underline;
+}
+
+.hero-nav a,
+.event-menu a {
+  text-decoration: none;
+  color: #000;
+}
+
+.hero-nav a:hover,
+.event-menu a:hover,
+.hero-nav a:focus,
+.event-menu a:focus {
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.container-finds {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+img {
+  object-fit: cover;
+}
+
+.main-img-jan img {
+  height: 600px;
+  width: 450px;
+}
+
+.main-img-feb img {
+  height: 600px;
+  width: 600px;
+}
+
+.main-img img {
+  border: 5px solid #fff;
+  padding: 10px;
+}
+
+@media (max-width: 650px) {
+  .main-img img {
+    height: 360px;
+    width: 300px;
+  }
+}
+
+.imgs img {
+  width: 200px;
+  height: 200px;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+.imgs {
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade {
+  opacity: 0;
+  animation: fade .5s ease-in 1 forwards;
+}
+
 .finds-gallery {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 45vh;
+  height: 70vh;
+  margin-top: 8em;
+}
+
+@media (max-width: 1000px) {
+  .finds-gallery {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .gallery-img:hover {
+    flex: 13;
+  }
 }
 
 .gallery-img {
   flex: 1;
   height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: none;
+  position: relative;
+  overflow: hidden;
   transition: flex 0.8s ease;
+  border: 1px solid #fff;
 }
 
 .gallery-img:hover {
-  flex: 7;
-}
-
-@media (max-width: 840px) {
-  .gallery-img:hover {
-    flex: 13;
-  }
-  .header {
-    display: flex;
-    flex-direction: column;
-}
-}
-
-/* photos for jan 22 meeting / top accordion */
-.img-1 {
-  background-image: url(jan22/jan-meeting-1.jpg);
-}
-.img-2 {
-  background-image: url(jan22/jan-meeting-2.jpg);
-  background-position: center top 10%;
-}
-.img-3 {
-  background-image: url(jan22/jan-meeting-3.jpg);
-}
-.img-4 {
-  background-image: url(jan22/jan-meeting-4.jpg);
-}
-.img-5 {
-  background-image: url(jan22/jan-meeting-5.jpg);
-}
-.img-6 {
-  background-image: url(jan22/jan-meeting-6.jpg);
-}
-.img-7 {
-  background-image: url(jan22/jan-meeting-7.jpg);
-}
-.img-8 {
-  background-image: url(jan22/jan-meeting-8.jpg);
-}
-.img-9 {
-  background-image: url(jan22/jan-meeting-9.jpg);
-}
-.img-10 {
-  background-image: url(jan22/jan-meeting-10.jpg);
-}
-
-/* photos for jan 2022 hunt / bottom accordion */
-.img-11 {
-  background-image: url(jan22/Jan-Cash_Silver_Hook.jpg);
-}
-.img-12 {
-  background-image: url(jan22/Jan-Cash-F-Button.jpg);
-}
-.img-13 {
-  background-image: url(jan22/Jan-Cash-Gardner_Bullet.jpg);
-}
-.img-14 {
-  background-image: url(jan22/Jan-Cash-V-Nickel.jpg);
-}
-.img-15 {
-  background-image: url(jan22/Jan-Coin&CW.jpg);
-}
-.img-16 {
-  background-image: url(jan22/Jan-Coin&Relic.jpg);
-}
-.img-17 {
-  background-image: url(jan22/Jan-Jewelry&CW.jpg);
-}
-.img-18 {
-  background-image: url(jan22/jan-larry.jpg);
-}
-.img-19 {
-  background-image: url(jan22/Jan-Steve-.925_bracelet.jpg);
-}
-.img-20 {
-  background-image: url(jan22/Jan-Steve-Relic.jpg);
-}
-.img-21 {
-  background-image: url(jan22/Jan-Steve-Token_coal.jpg);
+  flex: 10;
 }

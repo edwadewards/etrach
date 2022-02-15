@@ -1,3 +1,11 @@
+// event menu open 
+const menuBtn = document.querySelector('.event-menu-open');
+const eventMenu = document.querySelector('.event-menu');
+
+menuBtn.addEventListener('click', () => {
+  eventMenu.style.transform = 'scale(1)';
+});
+
 // color change on club leader's names
 const lastName = document.querySelectorAll('.last-name');
 
@@ -40,3 +48,4 @@ next.addEventListener('click', e => {
   const nextImg = currentImg.nextElementSibling;
   moveSlider(slider, currentImg, nextImg);
 });
+
