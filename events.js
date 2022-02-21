@@ -1,11 +1,3 @@
-// event menu open 
-const menuBtn = document.querySelector('.event-menu-open');
-const eventMenu = document.querySelector('.event-menu');
-
-menuBtn.addEventListener('click', () => {
-  eventMenu.style.transform = 'scale(1)';
-});
-
 // event page photo gallery
 const current = document.querySelector('#current');
 const imgs = document.querySelectorAll('.imgs img');
