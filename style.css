@@ -292,7 +292,6 @@
   z-index: 100;
 }
 /* end of border styles */
-
 .gallery-arrows {
   display: flex;
   align-items: center;
@@ -328,31 +327,28 @@
 }
 
 .gallery {
-  position: relative;
   overflow: hidden;
-  height: 180px;
-  margin: 0 auto;
 }
 
 .gallery-slide {
   list-style: none;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: .5em;
   transition: transform 250ms ease-in;
 }
 
 .gallery-slide > li {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  padding: 1.25em .3em;
+  padding: 1.5em 0;
   transition: all 0.7s linear;
 }
 
 .gallery-slide > li > img {
   object-fit: cover;
+  cursor: pointer;
 }
 
-.gallery-slide > li > img:hover,
 .gallery-slide > li > img:focus {
   transform: scale(1.05);
   transform-origin: bottom;
@@ -361,6 +357,38 @@
 .img-edit-2 {
   object-fit: cover;
   object-position: center 35%;
+}
+
+#lightbox {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox img {
+  width: 50vw;
+  height: 80vh;
+  padding: 4px;
+  background-color: #000;
+  border: 2px solid #fff;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 840px) {
+  #lightbox img {
+    width: 70vw;
+    height: 70vh;
+  }
 }
 
 /* section defaults */
