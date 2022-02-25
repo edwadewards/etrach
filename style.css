@@ -247,12 +247,13 @@
   font-family: var(--primary-font);
   color: var(--highlight-color);
   font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: center;
   margin-top: 2em;
   margin-bottom: clamp(4em, 10vh, 8em);
   padding: clamp(1em, 3vw, 5em);
-  border: 4px solid var(--highlight-color);
+  border: 2px solid var(--highlight-color);
+  border-radius: 4px;
   position: relative;
 }
 
@@ -359,6 +360,7 @@
   object-position: center 35%;
 }
 
+/* styles for lightbox created via JS */
 #lightbox {
   position: fixed;
   z-index: 200;
@@ -396,7 +398,7 @@
 .board-of-directors,
 .advertisement,
 .resources {
-  background-color: var(--highlight-color);
+  background-color: #fff;
   padding: clamp(2em, 5vw, 6em);
 }
 
@@ -421,14 +423,24 @@
 .heading {
   text-align: center;
   background-color: var(--clr-black);
+  border-radius: 50%;
   color: var(--highlight-color);
   font-family: var(--primary-font);
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  padding: .75em;
-  margin: 1em 0;
-  transform: skew(20deg);
+  padding: 2em 1em;
+  margin: 0 auto 3em auto;
+  width: max-content;
+  /* transform: skew(20deg); */
+}
+
+/* .heading > span {
+  margin: 0 2em;
+} */
+
+.heading > span > i {
+  font-size: .75rem;
 }
 
 .id-container {
@@ -462,6 +474,10 @@
   gap: 2em;
 }
 
+.advertisement > a > img {
+  border: 1px solid var(--clr-black);
+}
+
 .advertisement > p {
   font-family: var(--primary-font);
   font-size: 1.2rem;
@@ -474,13 +490,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .resource-links > button {
   padding: .75em 1.25em;
   border: none;
-  border-radius: 7px;
+  background: transparent;
 }
 
 .resource-links > button > a {
