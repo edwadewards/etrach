@@ -1,0 +1,91 @@
+:root {
+  --home-main: rgba(255, 130, 0, 0.5);
+  --home-lt: rgba(255, 130, 0, 0.2);
+  --blue-clr: rgb(110, 110, 196);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(../media/treasure.jpg) fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  line-height: 1.6;
+  font-family: 'Updock', cursive;
+}
+
+.container {
+  background-color: #fff;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* presets */
+h1 {
+  color: #222;
+  text-align: center;
+  font-size: 4rem;
+  padding: 1em 0;
+}
+
+section {
+  padding: 1em;
+}
+
+img {
+  max-height: 400px;
+  max-width: 550px;
+}
+
+@media (max-width: 600px) {
+  img {
+    max-height: 300px;
+    max-width: 400px;
+  }
+}
+
+nav {
+  background-color: rgba(0, 0, 0, .6);
+  padding: 1em;
+  position: fixed;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  list-style: none;
+}
+
+.nav-items > li > a {
+  color: #fff;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.photo-gallery, 
+.photo-gallery-awards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: .8em;
+}
+
+.photo-gallery-awards {
+  padding: 2em 0;
+}
+
+
+

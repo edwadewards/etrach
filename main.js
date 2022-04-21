@@ -1,65 +1,15 @@
-// color change on club leader's names
-const lastName = document.querySelectorAll('.last-name');
+const slides = document.querySelectorAll('[data-slide]')
+const slideButtons = document.querySelectorAll('[data-slide-btn]')
 
-lastName.forEach(name => {
-  name.addEventListener('mouseover', () => {
-    let color = '#' + Math.floor(Math.random()*16777215).toString(16);
-    name.style.color = color;
-  });
-});
+function openSlide(event, slide) {  
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.transform = 'scale(0)';
+  }  
 
+  for (let i = 0; i < slideButtons.length; i++) {
+    slideButtons[i].className = slideButtons[i].className.replace(' active-slide', '');
+  }  
 
-// image slider
-const slider = document.querySelector('.gallery-slide');
-const images = Array.from(slider.children);
-const prev = document.querySelector('.prev-btn');
-const next = document.querySelector('.next-btn');
-
-
-const activeImg = images[0].getBoundingClientRect().width;
-
-const setPosition = (image, index) => {
-  image.style.left = activeImg * index + 'px';
-};
-images.forEach(setPosition);
-
-const moveSlider = (slider, currentImg, targetImg) => {
-  slider.style.transform = 'translateX(-' + targetImg.style.left + ')';
-  currentImg.classList.remove('current-img');
-  targetImg.classList.add('current-img');
-};
-
-prev.addEventListener('click', e => {
-  const currentImg = slider.querySelector('.current-img');
-  const prevImg = currentImg.previousElementSibling;
-  moveSlider(slider, currentImg, prevImg);
-});
-
-next.addEventListener('click', e => {
-  const currentImg = slider.querySelector('.current-img');
-  const nextImg = currentImg.nextElementSibling;
-  moveSlider(slider, currentImg, nextImg);
-});
-
-// lightbox 
-const lightbox = document.createElement('div');
-lightbox.id = 'lightbox';
-document.body.appendChild(lightbox);
-const lightboxImages = document.querySelectorAll('.gallery-slide img');
-
-lightboxImages.forEach(i => {
-  i.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    const lightboxImg = document.createElement('img');
-    lightboxImg.src = i.src;
-    while (lightbox.firstChild) {
-      lightbox.removeChild(lightbox.firstChild);
-    }
-    lightbox.appendChild(lightboxImg); 
-  })
-})
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target !== e.currentTarget) return;
-  lightbox.classList.remove('active');
-})
+  document.getElementById(slide).style.transform = 'scale(1)';
+  event.currentTarget.className += ' active-slide';  
+}
