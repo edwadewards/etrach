@@ -9,4 +9,4 @@ Also my first experience with cPanel and FTP software.
 
 https://www.etrac-h.com/
 
-![](https://github.com/edwadewards/etrach/blob/main/media/etrach_thumbnail.png)
+![](https://github.com/edwadewards/etrach/blob/main/media/etrach-screen.png)
