@@ -41,15 +41,20 @@ section {
   padding: 1em;
 }
 
+section:not(:last-of-type) {
+  border-bottom: 5px dotted #ddd;
+}
+
 img {
-  max-height: 400px;
-  max-width: 550px;
+  max-height: 300px;
+  max-width: 300px;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
   img {
-    max-height: 300px;
-    max-width: 400px;
+    max-height: 200px;
+    max-width: 200px;
   }
 }
 
@@ -87,5 +92,35 @@ nav {
   padding: 2em 0;
 }
 
+#lightbox {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox img {
+  max-width: 500px;
+  max-height: 500px;
+  padding: 4px;
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+@media (max-width: 840px) {
+  #lightbox img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
 
 
