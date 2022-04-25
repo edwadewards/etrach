@@ -315,10 +315,6 @@ section, main {
   object-position: center 30%;
 }
 
-.media-element-fix-2 {
-  aspect-ratio: 0.5;
-}
-
 .snaps-inline {
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: .6rem;
@@ -504,7 +500,8 @@ section, main {
     display: none;
   }
   .slide-container {
-    width: 340px;
+    width: 300px;
+    min-height: 130vh;
   }
   .media-element {
     width: 300px;
