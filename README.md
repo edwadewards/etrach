@@ -18,4 +18,4 @@ Highlights include:
 
 ![](https://github.com/edwadewards/etrach/blob/main/readME-img/etrach1.png)
 
-![](https://github.com/edwadewards/etrach/blob/main/readME-img/etrach1.png)
+![](https://github.com/edwadewards/etrach/blob/main/readME-img/etrach2.png)
