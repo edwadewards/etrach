@@ -9,4 +9,13 @@ Also my first experience with cPanel and FTP software.
 
 https://www.etrac-h.com/
 
-![](https://github.com/edwadewards/etrach/blob/main/media/etrach-screen.png)
+Version 3 of the site. 
+Highlights include:
+- Welcome message made with pure CSS.
+- Three page slideshow showing bio, club officers and club members.
+- Front page horizontal slider with club images made with just CSS.
+- Bonus page showcasing photos from clubs monthly events with lightbox function made with vanilla JS.
+
+![](https://github.com/edwadewards/etrach/blob/main/readME-img/etrach1.png)
+
+![](https://github.com/edwadewards/etrach/blob/main/readME-img/etrach1.png)
