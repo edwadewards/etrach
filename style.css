@@ -468,6 +468,10 @@ section, main {
   justify-content: center;
 }
 
+.club-graphic:nth-child(2) {
+  max-width: 100%;
+}
+
 /* up button */
 .up-btn {
   height: 50px;
@@ -502,6 +506,9 @@ section, main {
   .slide-container {
     width: 300px;
     min-height: 130vh;
+  }
+  .slide-img {
+    object-fit: cover;
   }
   .media-element {
     width: 300px;
