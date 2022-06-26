@@ -1,16 +1,41 @@
-// event page photo gallery
-const current = document.querySelector('#current');
-const imgs = document.querySelectorAll('.imgs img');
-const opacity = 0.5;
+// Menu highlight on scroll
+window.addEventListener('DOMContentLoaded', () => {
+  const scrollPosition = new IntersectionObserver(sections => {
+    sections.forEach(section => {
+      const id = section.target.getAttribute('id');
+      if (section.intersectionRatio > 0) {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active-link');
+      } else {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active-link');
+      }
+    });
+  });
+  document.querySelectorAll('.photo-gallery[id]').forEach((section) => {
+    scrollPosition.observe(section);
+  })
+})
 
-imgs[0].style.opacity = opacity;
 
-imgs.forEach(img => img.addEventListener('click', imgClick));
+// lightbox 
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
+const lightboxImages = document.querySelectorAll('img');
 
-function imgClick(e) {
-  imgs.forEach(img => (img.style.opacity = 1));
-  current.src = e.target.src;
-  current.classList.add('fade');
-  setTimeout(() => current.classList.remove('fade'), 500);
-  e.target.style.opacity = opacity;
-}
+
+lightboxImages.forEach(i => {
+  i.addEventListener('click', () => {
+    lightbox.classList.add('active');
+    const lightboxImg = document.createElement('img');
+    lightboxImg.src = i.src;
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild);
+    }
+    lightbox.appendChild(lightboxImg); 
+  })
+})
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target !== e.currentTarget) return;
+  lightbox.classList.remove('active');
+})

@@ -1,270 +1,111 @@
 :root {
-  --jan-bg: #333;
-  --feb-bg: rgb(99, 1 , 11);
-  --highlight-color: #eeeeee;
+  --home-main: rgba(255, 130, 0, 0.5);
+  --home-lt: rgba(255, 130, 0, 0.2);
+  --blue-clr: rgb(110, 110, 196);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  padding: 0;
-  margin: 0; 
-  box-sizing: border-box;
+  background: url(../media/treasure.jpg) fixed;
   overflow-x: hidden;
+  position: relative;
 }
 
-.jan-wrapper {
-  background-color: var(--jan-bg);
-}
-
-.feb-wrapper {
-  background-color: var(--feb-bg);
-}
-
-.hero-nav-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  padding: .75em;
-}
-
-.hero-nav,
-.event-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  padding: .75em;
-  border-radius: 7px;
-  background-color: var(--highlight-color);
-}
-
-.event-menu {
-  transform: scale(0);
-  transition: transform 1s ease;
-  margin-bottom: 3em;
-}
-
-.hero-nav > button,
-.event-menu > button {
-  background-color: transparent;
-  border: none;
-  font-family: 'Source Code Pro', monospace;
-  font-size: clamp(.7rem, 2vw, 1rem);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.hero-nav > button:hover,
-.event-menu > button:hover,
-.hero-nav > button:focus,
-.event-menu > button:focus {
-  text-decoration: underline;
-}
-
-.hero-nav a,
-.event-menu a {
-  text-decoration: none;
-  color: #000;
-}
-
-.hero-nav a:hover,
-.event-menu a:hover,
-.hero-nav a:focus,
-.event-menu a:focus {
-  color: #333;
-}
-
-.mobile-nav-wrapper {
-  display: none;
-}
-
-@media (max-width: 1140px) {
-  .hero-nav-wrapper {
-    display: none;
-  }
-  .mobile-nav-wrapper {
-    display: block;
-  }
-  .mobile-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 10vh;
-    padding: 0 1em;
-    font-family: 'Source Code Pro', monospace;
-    background-color: #fff;
-    position: relative;
-    margin-bottom: 2em;
-  }
-  .mobile-nav > h1 > a {
-    text-decoration: none;
-    color: #000;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
-  }
-  .mobile-nav button,
-  .mobile-nav-menu button {
-    background: transparent;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: 'Source Code Pro', monospace;
-    cursor: pointer;
-    padding: 0;
-  }
-  .mobile-nav-menu a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #000;
-    font-weight: bold;
-    font-family: 'Source Code Pro', monospace;
-  }
-  .mobile-nav-menu {
-    position: absolute;
-    bottom: -1px;
-    right: 0;
-    z-index: 10;
-    height: 89%;
-    width: 70%;
-    background-color: #fff;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform .8s linear;
-  }
-  .menu-page-one,
-  .menu-page-two {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 90%;
-    padding: 2em 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 1.3em;
-    transition: transform .8s linear;
-  }
-  .menu-page-two {
-    transform: translateX(200%);
-  }
-  .menu-page-one hr {
-    width: 100%;
-    height: 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }  
-  .page-forward i,
-  .page-back i {
-    animation: icon 1.5s infinite forwards;
-  }
-  @keyframes icon {
-    0%, 100% {
-      transform: translate(0px);
-    }
-    50% {
-      transform: translate(3px);
-    }
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8em;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  background-color: #fff;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
-.container-finds {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
+/* presets */
+section {
+  padding: 5em 1em;
 }
 
 img {
-  object-fit: cover;
-}
-
-.main-img-jan img {
-  height: 600px;
-  width: 450px;
-}
-
-.main-img-feb img {
-  height: 600px;
-  width: 600px;
-}
-
-.main-img img {
-  border: 5px solid #fff;
-  padding: 10px;
-}
-
-@media (max-width: 650px) {
-  .main-img img {
-    height: 360px;
-    width: 300px;
-  }
-}
-
-.imgs img {
-  width: 200px;
-  height: 200px;
-  border: 3px solid #fff;
+  max-height: 300px;
+  width:100%;
   cursor: pointer;
+  display: inline-block;
 }
 
-.imgs {
-  max-width: 900px;
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 8px #ccc;
+}
+
+.nav-items {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5em;
+  padding: 2em 0 2em 3em;
+  list-style: none;
+}
+
+.nav-items > li > a {
+  color: #222;
+  border: 2px solid #777;
+  padding: .45em 1em;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.nav-items li.active-link > a {
+  background-color: var(--home-main);
+}
+
+.nav-items li > a:focus,
+.nav-items li > a:hover {
+  background-color: var(--home-lt);
+}
+
+.photo-gallery {
+  width: 100%;
+  columns: 4;
+  column-gap: 5px;
+}
+
+#lightbox {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 }
 
-@keyframes fade {
-  to {
-    opacity: 1;
-  }
+#lightbox img {
+  max-width: 400px;
+  max-height: 700px;
+  padding: 4px;
+  background-color: #000;
+  border: 2px solid #fff;
+  opacity: 1;
 }
 
-.fade {
-  opacity: 0;
-  animation: fade .5s ease-in 1 forwards;
-}
 
-.finds-gallery {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 70vh;
-  margin-top: 8em;
-}
-
-@media (max-width: 1000px) {
-  .finds-gallery {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .gallery-img:hover {
-    flex: 13;
-  }
-}
-
-.gallery-img {
-  flex: 1;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  transition: flex 0.8s ease;
-  border: 1px solid #fff;
-}
-
-.gallery-img:hover {
-  flex: 10;
-}
