@@ -20,6 +20,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 8em;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -31,11 +32,7 @@ html {
 
 /* presets */
 section {
-  padding: 1em;
-}
-
-section:not(#january-2022) {
-  margin-top: 8em;
+  padding: 5em 1em;
 }
 
 img {
@@ -43,12 +40,6 @@ img {
   width:100%;
   cursor: pointer;
   display: inline-block;
-  opacity: 0;
-}
-
-img.appear {
-  opacity: 1;
-  transition: opacity 300ms ease;
 }
 
 nav {
@@ -77,7 +68,12 @@ nav {
   text-decoration: none;
 }
 
-.active-link {
+.nav-items li.active-link > a {
+  background-color: var(--home-main);
+}
+
+.nav-items li > a:focus,
+.nav-items li > a:hover {
   background-color: var(--home-lt);
 }
 

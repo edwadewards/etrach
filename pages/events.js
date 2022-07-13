@@ -1,31 +1,19 @@
-// Intersection Observers
-const fadeIn = document.querySelectorAll('.photo-gallery > img');
-
-const observerOptions = {
-  threshold: .6,
-  rootMargin: "0px 0px -40px 0px"
-};
-
-const scrollsIn = new IntersectionObserver
-(function(
-  entries, 
-  scrollsIn
-) {
-  entries.forEach(entry => {
-    if(!entry.isIntersecting) {
-      return;
-    } else {
-      entry.target.classList.add('appear');
-      scrollsIn.unobserve(entry.target);
-    }
+// Menu highlight on scroll
+window.addEventListener('DOMContentLoaded', () => {
+  const scrollPosition = new IntersectionObserver(sections => {
+    sections.forEach(section => {
+      const id = section.target.getAttribute('id');
+      if (section.intersectionRatio > 0) {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active-link');
+      } else {
+        document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active-link');
+      }
+    });
   });
-},
-observerOptions);
-
-fadeIn.forEach(element => {
-  scrollsIn.observe(element);
-});
-
+  document.querySelectorAll('.photo-gallery[id]').forEach((section) => {
+    scrollPosition.observe(section);
+  })
+})
 
 
 // lightbox 
